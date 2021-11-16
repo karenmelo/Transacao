@@ -10,5 +10,6 @@ namespace Pagamento.Business.Models
         public string CardNumber { get; set; }        
         public DateTime ExpirationDate { get; set; }        
         public string Brand { get; set; }
+        public int Cvc { get; set; }
     }
 }

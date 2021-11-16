@@ -23,6 +23,7 @@ namespace Pagamento.App.ViewModels
 
         [Required(ErrorMessage = "O campo {0} é obrigatório")]
         [DisplayName("Número do cartão")]
+        [StringLength(16, ErrorMessage = "O campo {0} precisa ter {2} ou {1}", MinimumLength = 13)]
         public string CardNumber { get; set; }
 
         [Required(ErrorMessage = "O campo {0} é obrigatório")]
@@ -32,5 +33,10 @@ namespace Pagamento.App.ViewModels
         [Required(ErrorMessage = "O campo {0} é obrigatório")]
         [DisplayName("Bandeira")]
         public string Brand { get; set; }
+
+        [Required(ErrorMessage = "O campo {0} é obrigatório")]
+        [DisplayName("CVC")]
+        [StringLength(3, ErrorMessage ="O Campo {0} precisa ter {1}", MinimumLength = 3 )]
+        public string Cvc { get; set; }
     }
 }

@@ -50,10 +50,12 @@ namespace Pagamento.App.Controllers
         {
             if (!ModelState.IsValid) return View(transacaoViewModel);
 
-            var result = _cieloApi.Criar(_mapper.Map<Transacao>(transacaoViewModel));
+            //var result = _cieloApi.Criar(_mapper.Map<Transacao>(transacaoViewModel));
+            //if(result.StatusCode == (int)HttpStatusCode.OK)
 
-            if(result.StatusCode == (int)HttpStatusCode.OK)
-                await _transacaoRepository.Adicionar(_mapper.Map<Transacao>(transacaoViewModel));
+
+            
+            await _transacaoRepository.Adicionar(_mapper.Map<Transacao>(transacaoViewModel));
 
             return RedirectToAction("Index");
         }
