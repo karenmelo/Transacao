@@ -18,7 +18,7 @@ namespace Pagamento.App.ViewModels
         public int Amount { get; set; }
 
         [Required(ErrorMessage = "O campo {0} é obrigatório")]
-        [DisplayName("Número de parcelas")]
+        [DisplayName("Parcelas")]
         public int Installments { get; set; }
 
         [Required(ErrorMessage = "O campo {0} é obrigatório")]

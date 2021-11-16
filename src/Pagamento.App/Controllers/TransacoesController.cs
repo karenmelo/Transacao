@@ -76,6 +76,9 @@ namespace Pagamento.App.Controllers
             if (id != transacaoViewModel.Id) return NotFound();
             if (!ModelState.IsValid) return View(transacaoViewModel);
 
+            var transacao = _mapper.Map<Transacao>(transacaoViewModel);
+            await _transacaoRepository.Atualizar(transacao);
+
             return RedirectToAction("Index");
         }
 

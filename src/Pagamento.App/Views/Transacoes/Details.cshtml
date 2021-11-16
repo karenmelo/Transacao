@@ -35,13 +35,18 @@
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Brand)
-        </dt>
+        </dt>        
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Brand)
         </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Cvc)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Cvc)
+        </dd>
     </dl>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Salvar</a> |
-    <a asp-action="Index"><spam class="fa fa-arrow-alt-circle-left"></spam>&nbsp;Voltar</a>
+<div>    
+    <a asp-action="Index"><spam class="fa fa-arrow-alt-circle-left"></spam>&nbsp;Voltar</a>    
 </div>
