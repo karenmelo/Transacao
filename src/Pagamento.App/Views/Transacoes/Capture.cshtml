@@ -1,0 +1,29 @@
+﻿@model Pagamento.App.ViewModels.TransacaoViewModel
+
+@{
+    ViewData["Title"] = "Detalhes da Transação";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div>    
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Amount)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Amount)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Installments)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Installments)
+        </dd>  
+             
+    </dl>
+</div>
+<div>    
+    <a class="btn btn-primary" asp-action="Index"><spam class="fa fa-arrow-alt-circle-left"></spam>&nbsp;Voltar</a>    
+</div>

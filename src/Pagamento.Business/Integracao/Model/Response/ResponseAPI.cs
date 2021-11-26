@@ -1,6 +1,6 @@
 ﻿using Pagamento.Business.Integracao.Interface;
 
-namespace Pagamento.Business.Integracao.Model
+namespace Pagamento.Business.Integracao.Model.Response
 {
     public class ResponseAPI : IResponseAPI
     {

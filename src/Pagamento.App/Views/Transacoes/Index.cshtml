@@ -13,7 +13,7 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Id)
+                @Html.DisplayNameFor(model => model.PaymentId)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Amount)
@@ -22,11 +22,8 @@
                 @Html.DisplayNameFor(model => model.Installments)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ExpirationDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Brand)
-            </th>
+                @Html.DisplayNameFor(model => model.ReturnCode)
+            </th>           
             <th></th>
         </tr>
     </thead>
@@ -34,7 +31,7 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Id)
+                @Html.DisplayFor(modelItem => item.PaymentId)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Amount)
@@ -43,15 +40,11 @@
                 @Html.DisplayFor(modelItem => item.Installments)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ExpirationDate)
-            </td>
+                @Html.DisplayFor(modelItem => item.ReturnCode)
+            </td>           
             <td>
-                @Html.DisplayFor(modelItem => item.Brand)
-            </td>
-            <td>
-                <a class="btn btn-info" asp-action="Details" asp-route-id="@item.Id"><spam class="fa fa-eye"></spam></a> 
-                <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.Id"><spam class="fa fa-pencil-alt"></spam></a>                
-                @*<a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id"><spam class="fa fa-trash"></spam></a>*@
+                <a class="btn btn-info" asp-action="Capture" asp-route-id="@item.Id"><spam class="fa fa-camera"></spam></a> 
+                <a class="btn btn-danger" asp-action="Cancel" asp-route-id="@item.Id"><spam class="fa fa-window-close"></spam></a>                                
             </td>
         </tr>
 }

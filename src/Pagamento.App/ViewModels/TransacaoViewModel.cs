@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
@@ -8,6 +9,10 @@ namespace Pagamento.App.ViewModels
     {
         [Key]
         public Guid Id { get; set; }
+
+        [Required(ErrorMessage = "O campo {0} é obrigatório")]
+        [DisplayName("Nome do Cliente")]
+        public string Name { get; set; }
 
         [Required(ErrorMessage = "O campo {0} é obrigatório")]
         [DisplayName("Tipo de pagamento")]
@@ -28,15 +33,24 @@ namespace Pagamento.App.ViewModels
 
         [Required(ErrorMessage = "O campo {0} é obrigatório")]
         [DisplayName("Data de Validade")]
-        public DateTime ExpirationDate { get; set; }
+        [DisplayFormat(DataFormatString = "{0:MM/yyyy}")]
+        public string ExpirationDate { get; set; }
 
         [Required(ErrorMessage = "O campo {0} é obrigatório")]
         [DisplayName("Bandeira")]
         public string Brand { get; set; }
 
         [Required(ErrorMessage = "O campo {0} é obrigatório")]
-        [DisplayName("CVC")]
+        [DisplayName("CVV")]
         [StringLength(3, ErrorMessage ="O Campo {0} precisa ter {1}", MinimumLength = 3 )]
-        public string Cvc { get; set; }
+        public string Cvv { get; set; }
+
+
+        public Guid PaymentId { get; set; }
+                
+        [DisplayName("Código de retorno")]
+        public string ReturnCode { get; set; }
+        public decimal ServiceTaxAmount { get; set; }
+
     }
 }

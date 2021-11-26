@@ -7,6 +7,7 @@ using Microsoft.Extensions.Hosting;
 using Pagamento.Business.Integracao.CieloApi;
 using Pagamento.Business.Integracao.Interface;
 using Pagamento.Business.Integracao.Model;
+using Pagamento.Business.Integracao.Model.Response;
 using Pagamento.Business.Interface;
 using Pagamento.Data.Context;
 using Pagamento.Data.Repository;
@@ -33,6 +34,7 @@ namespace Pagamento.App
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddScoped<ITransacaoRepository, TransacaoRepository>();
+            services.AddScoped<IPaymentRepository, PaymentRepository>();
             services.AddScoped<ICieloApiIntegration, CieloApiIntegration>();
             services.AddScoped<IResponseAPI, ResponseAPI>();
 

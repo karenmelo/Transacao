@@ -11,6 +11,11 @@
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+             <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
             <div class="form-group">
                 <label asp-for="Amount" class="control-label"></label>
                 <input asp-for="Amount" class="form-control" />
@@ -28,7 +33,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="CardNumber" class="control-label"></label>
-                <input asp-for="CardNumber" class="form-control" />
+                <input asp-for="CardNumber" id="CardNumber" class="form-control" />
                 <span asp-validation-for="CardNumber" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -37,14 +42,14 @@
                 <span asp-validation-for="ExpirationDate" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Cvc" class="control-label"></label>
-                <input asp-for="Cvc" class="form-control" />
-                <span asp-validation-for="Cvc" class="text-danger"></span>
+                <label asp-for="Cvv" class="control-label"></label>
+                <input asp-for="Cvv" class="form-control" />
+                <span asp-validation-for="Cvv" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Brand" class="control-label"></label>
                 <input asp-for="Brand" class="form-control" />
-                <span asp-validation-for="Brand" class="text-danger"></span>
+                <span asp-validation-for="Brand" class="text-danger"></span>               
             </div>
             <div class="form-group">
                 <input type="submit" value="Salvar" class="btn btn-primary" />
@@ -59,4 +64,27 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script>
+        var creditCardNumber = document.getElementById("CardNumber");
+        getCardBrand: function(creditCardNumber) {
+        var cardnumber = cardnumber.replace(/[^0-9]+/g, '');
+
+        var cards = {
+            visa      : /^4[0-9]{12}(?:[0-9]{3})/,
+            mastercard : /^5[1-5][0-9]{14}/               
+        };
+
+        for (var flag in cards) {
+            if(cards[flag].test(cardnumber)) {
+                return flag;
+            }
+        }       
+
+        return false;
+    }
+
+}
+    </script>
+
 }
