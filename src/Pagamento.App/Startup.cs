@@ -64,7 +64,7 @@ namespace Pagamento.App
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Transacoes}/{action=Index}/{id?}");
             });
         }
     }

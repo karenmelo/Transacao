@@ -92,20 +92,7 @@ namespace Pagamento.App.Controllers
 
             return View(transacaoViewModel);
         }
-
-        //[HttpPut]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> Cancel(Guid id, TransacaoViewModel transacaoViewModel)
-        //{
-        //    if (id != transacaoViewModel.Id) return NotFound();
-        //    if (!ModelState.IsValid) return View(transacaoViewModel);
-
-        //    var transacao = _mapper.Map<Transaction>(transacaoViewModel);
-        //    await _transacaoRepository.Atualizar(transacao);
-
-        //    return RedirectToAction("Index");
-        //}
-           
+                         
         private async Task<TransacaoViewModel> ObterTransacao(Guid id)
         {
             return _mapper.Map<TransacaoViewModel>(await _transacaoRepository.ObterTransacao(id));
