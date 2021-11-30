@@ -1,7 +1,7 @@
 # Transacao
 
 Basta rodar a migration no projeto pagamento.data e executar a aplicação.
-Infelizmnente só estou tomando 404 no bate volta do sandbox.
+Criação do pagamento no sandbox e retornando 201 - created, realizando captura com retorno 200. =)
 
 
 Asp.Net Core MVC
